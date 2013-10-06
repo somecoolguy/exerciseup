@@ -1,4 +1,4 @@
-var index = window.location.href.indexOf("?code"); // index of "code" in url
+var index = window.location.href.indexOf("?authToken"); // index of "code" in url
 var i;
 var authTokenRef = new Firebase('https://xorsize.firebaseIO.com/admins/unique/tokens');
 /*authTokenRef.on('value', function(snapshot) {
