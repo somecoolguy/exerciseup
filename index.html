@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <script type='text/javascript'
+        src='https://cdn.firebase.com/v0/firebase-simple-login.js'>
+    </script>
+    <link rel='stylesheet' type='text/css' href='../css/example.css'>
+  </head>
+  <body>
+    <div id='logindiv'>
+      <input type='text' id='emailInput' placeholder='Email'>
+      <input type='password' id='passInput' placeholder='Password'>
+      <input type='button' id='loginButton' value='Login'>
+    </div>
+    <div id='registerdiv'>
+      <input type='text' id='emailRegister' placeholder='Email'>
+      <input type='password' id='passRegister' placeholder='Password'>
+      <input type='password' id='passConfRegister' placeholder='Confirm Password'>
+      <input type='button' id='registerButton' value='Register'>
+    </div>
+    <script type='text/javascript'>
+      alert("here");
+      var fitRef = new Firebase('https://xorsize.firebaseIO.com/');
+      var auth = new FirebaseSimpleLogin(fitRef, function(error, user) {
+        if (error) {
+          // an error occurred while attempting login
+          console.log(error);
+          alert(error);
+        } else if (user) {
+          alert(error);
+          // user authenticated with Firebase
+          console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+        } else {
+          alert("not logged in");
+          // user is logged out
+        }
+      });
+      alert("2");
+      $('#loginButton').click(function (e) {
+        auth.login('password', {
+          email: $('#emailInput').val(),
+          password: $('#passInput').val()
+        });
+      });
+   </script>
+  </body>
+</html>
