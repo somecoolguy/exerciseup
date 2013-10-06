@@ -1,11 +1,14 @@
-function set_url(url, element) {
-  element.value = url;
-        
-  var span = document.createElement("span");
-  span.innerHTML = "&nbsp;&nbsp;<a href='" + url + "' target='_blank'>Open</a>";
-  element.parentNode.insertBefore(span, element.nextSibling);
+var index = window.location.href.indexOf("?code");
+if (index > 0) {
+  var authToken = window.location.href.substring(index+6);
+  var xmlHttp = null;
+  xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", "https://Jawbone.com/nudge/api/v.1.0/users/@me",false);
+  xmlHttp.setRequestHeader("Accept", "application/json");
+  xmlHttp.setRequestHeader("Authorization","Bearer " + authToken);
+  xmlHttp.send(null);
+  alert(xmlHttp.responseText);
 }
-alert("hello");
 /*$('#updateButton').click(function (e) {
   alert("clicked");
   var pass = $('#newPass').val();
@@ -22,7 +25,7 @@ document.querySelector('#updateButton').addEventListener('click', function (e) {
 });
 
 document.querySelector('#AuthButton').addEventListener('click', function(e) {
-  alert("clicked");
+/*  alert("clicked");
   var consumer_key = "Le9MQzalLhQ";
   var shared_secret = "f30d441eb9cb8dd9eb3eeb198dd85b0a599575dd";
   var oauth_info = {};
@@ -30,4 +33,15 @@ document.querySelector('#AuthButton').addEventListener('click', function(e) {
   alert("got through");
   var url = oauth.sign({action: "GET", path: "https://jawbone.com/auth/oath2/auth", parameters: {oauth_callback: "oob"}}).signed_url;      
   set_url(url, document.getElementById("rt"));
+  */
+  alert("yo1");
+//  var xmlHttp = null;
+//  xmlHttp = new XMLHttpRequest();
+//  xmlHttp.open("GET", "https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=Le9MQzalLhQ&scope=basic_read extended_read move_read cardiac_read&redirect_uri=https://xorsizeup.appspot.com/", false);
+  window.location = "https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=Le9MQzalLhQ&scope=basic_read extended_read move_read cardiac_read&redirect_uri=https://xorsizeup.appspot.com/";
+  
+  //xmlHttp.send(null);
+  //alert(xmlHttp.responseText);
+  //response_type=code&client_id=Le9MQzalLhQ&scope=basic_read extended_read move_read cardiac_read&redirect_uri=xorsizeup.appspot.com
+  //alert("Yo");
 });
