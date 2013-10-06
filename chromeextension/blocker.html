@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Stop!</title>
+
+<style>
+body{text-align:center;background-image:url('http://365to50.files.wordpress.com/2013/05/stopsignrgb.jpg');
+background-repeat: no-repeat;background-position: center top}
+img{height:100%;}
+/*img{width:100%;height:100%;}*/
+#loginInfo{background-color:red;padding:20px;border-radius:15px;width:350px;position:fixed;
+left:50%;top:50%;margin-top:-90;margin-left:-175;}
+</style>
+
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">	
+  
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  
+</head>
+<body>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="container">
+
+		<div class = "offset4 span4" style="background-color:white; padding:20px; border-width=1px; border-style:solid; border-color:black;">
+	      <form class="form-signin">
+	        <h2 class="form-signin-heading">ExerciseUp Sign in</h2>
+	        Admin Sign in: <br />
+	        <input type="password" class="input-block-level" id="adminPass" placeholder="Admin Password">
+	        <br />
+	         <input type="button" class="btn btn-large btn-primary" id="adminLogin" value="Bypass">
+	        <br /><br />Or<br />
+	        <br />
+<!--	        <input type="text" class="input-block-level" placeholder="Username">
+	        <input type="password" class="input-block-level" placeholder="Password">
+	        <label class="checkbox">
+	          <input type="checkbox" value="remember-me"> Remember me
+	        </label> -->
+	        <input type="button" class="btn btn-large btn-primary" id="jawboneLogin" value="Login with Jawbone">
+	<!--        <button class="btn btn-large btn-primary" type="submit" id="jawboneLogin">Log in with Jawbone</button> -->
+	      </form>
+	  </div>
+
+    </div> <!-- /container -->
+
+</body>
+<script src="blocker.js"></script>
+</html>

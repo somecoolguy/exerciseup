@@ -1,5 +1,4 @@
-var index = window.location.href.indexOf("?code"); // index of "code" in url
-var i;
+var index = window.location.href.indexOf("?authToken"); // index of "code" in url
 var authTokenRef = new Firebase('https://xorsize.firebaseIO.com/admins/unique/tokens');
 /*authTokenRef.on('value', function(snapshot) {
   if (snapshot.val() != null) {
@@ -16,7 +15,8 @@ var authTokenRef = new Firebase('https://xorsize.firebaseIO.com/admins/unique/to
   }
 }); */
 if (index > 0) {
-  var authToken = window.location.href.substring(index+6);
+  alert("here");
+  var authToken = window.location.href.substring(index+11);
   authTokenRef.on('value', function(snapshot) {
     if (snapshot.val() != null) {
       for (token in snapshot.val()){
@@ -25,7 +25,7 @@ if (index > 0) {
         }
       }
     }
-    authTokenRef.push({token: authToken});
+//    authTokenRef.push({token: authToken});
   });
   var xmlHttp = null;
   xmlHttp = new XMLHttpRequest();
@@ -60,7 +60,6 @@ document.querySelector('#AuthButton').addEventListener('click', function(e) {
   var url = oauth.sign({action: "GET", path: "https://jawbone.com/auth/oath2/auth", parameters: {oauth_callback: "oob"}}).signed_url;      
   set_url(url, document.getElementById("rt"));
   */
-  alert("yo1");
 //  var xmlHttp = null;
 //  xmlHttp = new XMLHttpRequest();
 //  xmlHttp.open("GET", "https://jawbone.com/auth/oauth2/auth?response_type=code&client_id=Le9MQzalLhQ&scope=basic_read extended_read move_read cardiac_read&redirect_uri=https://xorsizeup.appspot.com/", false);

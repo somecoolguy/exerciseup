@@ -7,9 +7,18 @@
   "options_page": "options.html",
 
   "permissions": [
-    "http://www.amazon.com/*",
-    "https://jawbone.com/*"
+    "tabs", "http://*/*", "https://*/*", "https://www.google.com/*",
+    "storage", "https://jawbone.com/*"
   ],
+  "content_scripts": [
+  {
+  "matches": ["http://*/*"],
+  "js": ["background.js"]
+  }
+  ],
+  "background": {
+    "scripts": ["backgrounded.js"]
+  },
   "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://ajax.googleapis.com; object-src 'self'"
 
 }
