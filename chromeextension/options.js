@@ -1,6 +1,32 @@
-var index = window.location.href.indexOf("?code");
+var index = window.location.href.indexOf("?code"); // index of "code" in url
+var i;
+var authTokenRef = new Firebase('https://xorsize.firebaseIO.com/admins/unique/tokens');
+/*authTokenRef.on('value', function(snapshot) {
+  if (snapshot.val() != null) {
+    for (token in snapshot.val()){
+      alert(token.token);
+      var xmlHttp = null;
+      xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "https://Jawbone.com/nudge/api/v.1.0/users/@me",false);
+      xmlHttp.setRequestHeader("Accept", "application/json");
+      xmlHttp.setRequestHeader("Authorization","Bearer " + token.token);
+      xmlHttp.send(null);
+      alert(xmlHttp.responseText);
+    }
+  }
+}); */
 if (index > 0) {
   var authToken = window.location.href.substring(index+6);
+  authTokenRef.on('value', function(snapshot) {
+    if (snapshot.val() != null) {
+      for (token in snapshot.val()){
+        if (authToken == token.token){
+          return;
+        }
+      }
+    }
+    authTokenRef.push({token: authToken});
+  });
   var xmlHttp = null;
   xmlHttp = new XMLHttpRequest();
   xmlHttp.open("GET", "https://Jawbone.com/nudge/api/v.1.0/users/@me",false);

@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "XorSize",
-  "description": "This extension helps make your fat kids skinny.",
+  "description": "This extension lets parents limit internet connectivity until their children exercise.",
   "version": "1.0",
   "options_page": "options.html",
 
